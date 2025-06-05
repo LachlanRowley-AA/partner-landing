@@ -161,13 +161,13 @@ const FeaturesSection = ({ features }: { features: Feature[] }) => {
                 }
               )}
             >
-              <span className="flex items-center justify-center">
-                {typeof item === 'string' ? item : 
-                 React.isValidElement(item) ? React.cloneElement(item as React.ReactElement, {
-                   className: clsx((item as React.ReactElement).props.className, 
-                     itemIndex === 0 ? "text-white" : "text-gray-300")
-                 }) : item}
-              </span>
+            <span className="flex items-center justify-center">
+              {typeof item === 'string' ? item :
+              React.isValidElement(item) ? React.cloneElement(item as React.ReactElement<any>, {
+                className: clsx((item as React.ReactElement<any>).props.className,
+                  itemIndex === 0 ? "text-white" : "text-gray-300")
+              }) : item}
+            </span>
             </div>
           ))}
         </div>
