@@ -18,7 +18,7 @@ import {
 import { AnimatePresence, motion } from 'motion/react';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
 
-const MotionBox = motion(Box);
+const MotionBox = motion.div;
 
 type FormStep = {
   name: string;
