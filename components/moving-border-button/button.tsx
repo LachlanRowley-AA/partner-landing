@@ -10,7 +10,7 @@ import {
 import { useRef } from "react";
 
 // Simple cn utility function
-const cn = (...classes) => classes.filter(Boolean).join(' ');
+const cn = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ');
 
 export function Button({
   borderRadius = "1.75rem",
@@ -119,7 +119,7 @@ export const MovingBorder = ({
   ry?: string;
   [key: string]: any;
 }) => {
-  const pathRef = useRef<any>();
+  const pathRef = useRef<any>(null);
   const progress = useMotionValue<number>(0);
   
   useAnimationFrame((time) => {

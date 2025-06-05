@@ -47,7 +47,21 @@ const PartnershipBenefits = () => {
     }
   ];
 
-  const renderCard = (benefit, index, actualIndex) => {
+  interface Benefit {
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+    title: string;
+    description: string;
+    color: string;
+    delay: string;
+  }
+
+  interface RenderCardProps {
+    benefit: Benefit;
+    index: number;
+    actualIndex: number;
+  }
+
+  const renderCard = (benefit: Benefit, index: number, actualIndex: number): React.ReactElement => {
     const IconComponent = benefit.icon;
     return (
       <div

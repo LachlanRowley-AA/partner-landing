@@ -124,7 +124,7 @@ export default function ContactForm() {
         style={{ overflow: 'hidden' }}
       >
         <AnimatePresence mode="wait">
-          <MotionBox key={currentStep} {...animationProps}>
+          <MotionBox key={currentStep} {...animationProps as any}>
             {isLastStep ? (
               <Center h="100%">
                 <Stack align="center">
