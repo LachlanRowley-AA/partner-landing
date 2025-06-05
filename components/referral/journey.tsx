@@ -4,23 +4,22 @@ import { Phone, Search, CheckCircle, Users, Shield, FileCheck, DollarSign, Award
 const ReferralJourneySection = () => {
   const [visibleSteps, setVisibleSteps] = useState(new Set());
   const [isVisible, setIsVisible] = useState(false);
-  const observerRef = useRef(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
     
     const observer = new IntersectionObserver(
-      (entries) => {
+    (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const stepIndex = parseInt(entry.target.dataset.step);
+        if (entry.isIntersecting) {
+            const stepIndex = parseInt((entry.target as HTMLElement).dataset.step || '0');
             setVisibleSteps(prev => new Set([...prev, stepIndex]));
-          }
+        }
         });
-      },
-      { threshold: 0.3 }
+    },
+    { threshold: 0.3 }
     );
-
     observerRef.current = observer;
 
     // Observe all step elements after a short delay

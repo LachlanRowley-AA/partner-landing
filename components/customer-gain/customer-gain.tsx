@@ -3,7 +3,7 @@ import { Shield, Lightbulb, HandHeart, Headphones, Gift, CheckCircle } from 'luc
 
 const CustomerBenefits = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredBenefit, setHoveredBenefit] = useState(null);
+  const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
