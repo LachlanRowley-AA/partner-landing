@@ -36,7 +36,7 @@ const steps = [
 
 function ReferralProcessSection() {
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#F6F6F6' }}>
+    <section className="py-10 relative overflow-hidden" style={{ backgroundColor: '#F6F6F6' }}>
       {/* Background decorative elements */}
       <div className="absolute top-10 right-10 w-40 h-40 rounded-full opacity-5" style={{ backgroundColor: '#01E194' }}></div>
       <div className="absolute bottom-20 left-20 w-32 h-32 rounded-full opacity-5" style={{ backgroundColor: '#01E194' }}></div>
@@ -51,7 +51,7 @@ function ReferralProcessSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6" style={{ background: 'linear-gradient(0deg, #01E194 0%, #01E194 100%, #000000 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          <h2 className="text-5xl md:text-6xl font-bold mb-2 leading-tight" style={{ background: 'linear-gradient(0deg, #01E194 0%, #01E194 100%, #000000 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             Seamless Integration
           </h2>
 
@@ -107,7 +107,7 @@ function ReferralProcessSection() {
                   
                   {/* Step number badge */}
                   <div 
-                    className="absolute top-2 right-5 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg"
+                    className="absolute top-2 right-5 w-12 h-12 rounded-full hidden md:flex items-center justify-center text-white font-bold text-lg shadow-lg"
                     style={{ backgroundColor: '#01E194' }}
                   >
                     {step.number}
@@ -122,7 +122,7 @@ function ReferralProcessSection() {
                   <div className="flex items-start gap-6 relative z-10">
                     {/* Enhanced Icon Container */}
                     <motion.div 
-                      className="flex-shrink-0 p-4 rounded-2xl shadow-lg relative overflow-hidden"
+                      className="flex-shrink-0 p-3 rounded-2xl shadow-lg relative overflow-hidden"
                       style={{ backgroundColor: '#01E194' }}
                       whileHover={{ rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}

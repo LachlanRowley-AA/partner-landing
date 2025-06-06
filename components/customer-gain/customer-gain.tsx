@@ -73,7 +73,7 @@ const CustomerBenefits = () => {
                   
                   <div className="flex items-start space-x-6">
                     {/* Icon */}
-                    <div className="flex-shrink-0 w-16 h-16 rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
+                    <div className="hidden md:flex flex-shrink-0 w-16 h-16 rounded-xl items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     
@@ -88,7 +88,7 @@ const CustomerBenefits = () => {
                     </div>
                     
                     {/* Check mark */}
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
+                    <div className="hidden md:flex flex-shrink-0 w-8 h-8 rounded-full items-center justify-center transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
                       <CheckCircle className="w-5 h-5 text-white" />
                     </div>
                   </div>

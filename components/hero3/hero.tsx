@@ -12,6 +12,7 @@ function Hero() {
     []
   );
   const longestString: string = titles.reduce((a, b) => (a.length > b.length ? a : b), "");
+
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       previousTitle.current = titleNumber;
@@ -23,39 +24,40 @@ function Hero() {
     }, 2500);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
+
   return (
-    <div className="w-full flex flex-col lg:flex-row px-20 py-4">
+    <div className="w-full flex flex-col lg:flex-row md:px-20">
       <div className="flex-1 lg:w-2/3">
-        <div className="flex gap-8 py-20 lg:pt-20 md:px-20 lg:px-20 items-center justify-center flex-col px-20">
+        <div className="flex gap-8 py-20 lg:pt-20 px-0 md:px-20 lg:px-20 items-center justify-center flex-col ">
           <img src="/AA_Light_Logo.svg" alt="AA Light Logo" className="h-16 w-auto" />
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl max-w-4xl tracking-tighter text-center font-regular">
-            <span className="text-spektr-cyan-50">Partnering with tomorrow's&nbsp;</span>
-            <span className="relative inline-block">
+              <span className="text-spektr-cyan-50">Partnering with tomorrow's</span>
+              <br />
+              <span className="relative inline-block align-middle w-full">
                 {/* Invisible static placeholder that takes up the correct space */}
-                <span className="invisible font-semibold">
-                {longestString}
+                <span className="invisible font-semibold align-middle text-center text-[#01E194]">
+                  {longestString}
                 </span>
                 {/* Animated title absolutely positioned over the placeholder */}
                 {titles.map((title, index) => (
-                <motion.span
+                  <motion.span
                     key={index}
-                    className="absolute left-0 top-0 font-semibold text-[#01E194]"
+                    className="absolute left-1/2 top-0 font-semibold text-[#01E194] align-middle text-center transform -translate-x-1/2 whitespace-nowrap"
                     initial={{ opacity: 0, y: "100%" }}
                     animate={
-                    titleNumber === index
+                      titleNumber === index
                         ? { y: "0%", opacity: 1 } // current entering
                         : index === previousTitle.current
                         ? { y: "100%", opacity: 0 } // outgoing (slide up)
                         : { y: "-100%", opacity: 0 } // default (below)
                     }
                     transition={{ type: "spring", stiffness: 50 }}
-                >
+                  >
                     {title}
-                </motion.span>
+                  </motion.span>
                 ))}
-            </span>
-            {/* <span className="text-spektr-cyan-50">&nbsp;leaders<s/pan> */}
+              </span>
             </h1>
             <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-4xl text-center">
               Unlock growth for you and your clients with our innovative finance partnership model.
@@ -68,10 +70,11 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className="lg:w-1/3">
+      <div className="lg:w-1/3 md:py-4 rounded-lg">
         <ContactSection />
       </div>
     </div>
   );
 }
+
 export { Hero };

@@ -71,7 +71,7 @@ const PartnershipBenefits = () => {
         onMouseLeave={() => setHoveredCard(null)}
       >
         <div 
-          className="relative backdrop-blur-lg rounded-sm p-8 h-full border transition-all duration-300 hover:scale-105 hover:shadow-2xl" 
+          className="relative backdrop-blur-lg rounded-sm p-6 h-full border transition-all duration-300 hover:scale-105 hover:shadow-2xl" 
           style={{ 
             backgroundColor: '#F6F6F6', 
             borderColor: '#01E194', 
@@ -91,7 +91,7 @@ const PartnershipBenefits = () => {
           {/* Icon and Title Container - Flexbox for alignment */}
           <div className="flex items-center mb-6">
             <div 
-              className="flex items-center justify-center w-16 h-16 rounded-sm mr-4 transform group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+              className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-sm mr-4 transform group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
               style={{ backgroundColor: '#01E194' }}
             >
               <IconComponent className="w-8 h-8 text-white" />

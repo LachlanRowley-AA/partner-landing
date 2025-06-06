@@ -105,8 +105,8 @@ const ReferralJourneySection = () => {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Central timeline line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-100 via-yellow-300 to-orange-300 transform -translate-x-1/2 opacity-100"></div>
+          {/* Central timeline line - centered on desktop, left-aligned on mobile */}
+          <div className="absolute md:left-1/2 left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-100 via-yellow-300 to-orange-300 md:transform md:-translate-x-1/2 opacity-100"></div>
           
           {/* Steps */}
           <div>
@@ -121,21 +121,21 @@ const ReferralJourneySection = () => {
                   data-step={index}
                   className="relative flex items-center w-full"
                 >
-                  {/* Timeline dot */}
-                  <div className={`absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-[#01E194] rounded-full border-4 border-white shadow-lg z-20 transition-all duration-700 delay-${index * 100} ${
+                  {/* Timeline dot - centered on desktop, left-aligned on mobile */}
+                  <div className={`absolute md:left-1/2 left-4 md:transform md:-translate-x-1/2 transform -translate-x-1/2 w-8 h-8 bg-[#01E194] rounded-full border-4 border-white shadow-lg z-20 transition-all duration-700 delay-${index * 100} ${
                     isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
                   }`}>
                     <div className="absolute inset-1 bg-white rounded-full"></div>
                   </div>
 
-                  {/* Step content */}
-                  <div className={`w-5/12 ${
-                    isLeft ? "pr-8" : "pl-8 ml-auto"
+                  {/* Step content - alternating on desktop, all right on mobile */}
+                  <div className={`md:w-5/12 w-full ${
+                    isLeft ? "md:pr-8 pl-12" : "md:pl-8 md:ml-auto pl-12"
                   }`}>
                     <div className={`relative transform transition-all duration-700 delay-${index * 100} ${
                       isVisible 
                         ? 'translate-y-0 opacity-100 scale-100' 
-                        : `translate-y-8 opacity-0 scale-95 ${isLeft ? 'translate-x-8' : '-translate-x-8'}`
+                        : `translate-y-8 opacity-0 scale-95 ${isLeft ? 'translate-x-8' : 'md:-translate-x-8 translate-x-8'}`
                     }`}>
                       <div className="bg-white rounded-sm p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-gray-200 group relative">
                         {/* Gradient overlay */}
