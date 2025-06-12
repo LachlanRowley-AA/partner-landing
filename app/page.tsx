@@ -28,7 +28,7 @@ import { Logos03 } from "@/components/AnimatedLogos/AnimatedLogos"
 export default function HomePage() {
   return (
     <main>
-      <Hero />
+      <section id="hero"><Hero /></section>
       {/* <Logos03 /> */}
       <PartnershipBenefits />
       <CustomerBenefits />
@@ -36,7 +36,7 @@ export default function HomePage() {
       <ReferralProcessSection />
       <ReferralJourneySection />
       <FounderStorySection />
-      <ContactSection />
+      <section id='endcontact'><ContactSection /></section>
     </main>
   );
 }

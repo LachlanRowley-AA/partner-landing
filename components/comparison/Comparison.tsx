@@ -40,6 +40,18 @@ type Props = {
   buttons: ButtonProps[];
 };
 
+const scrollToSection = (id: string) => {
+  console.log('click');
+  const section = document.getElementById(id);
+  if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      console.log('section found');
+  }
+  else {
+    console.log('section not found');
+  }
+};
+
 export type Comparison1Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
 const InfoTooltip = ({ info }: { info: string }) => {
@@ -111,6 +123,11 @@ export const Comparison1 = (props: Comparison1Props) => {
                   size={button.size as any}
                   className="text-black"
                   contentStyle={{ backgroundColor: "#01E194"}}
+                  onClick={(e: any) => {
+                  e.preventDefault();
+                  scrollToSection('endcontact');
+                }}
+
                 >
                   {button.title}
                   {button.iconRight && <span className="ml-2">{button.iconRight}</span>}

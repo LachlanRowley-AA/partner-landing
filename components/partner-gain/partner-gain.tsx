@@ -62,6 +62,18 @@ const PartnershipBenefits = () => {
     actualIndex: number;
   }
 
+  const scrollToSection = (id: string) => {
+    console.log('click');
+    const section = document.getElementById(id);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        console.log('section found');
+    }
+    else {
+      console.log('section not found');
+    }
+};
+
   const renderCard = (benefit: Benefit, index: number, actualIndex: number): React.ReactElement => {
     const IconComponent = benefit.icon;
     return (
@@ -153,9 +165,12 @@ const PartnershipBenefits = () => {
               Join industry leaders who trust us to power their growth. Let's discuss how we can customize our solutions for your unique needs.
             </p>
             <Button 
-            duration={3000}
             borderClassName="h-12 w-12"
             contentStyle={{ backgroundColor: '#01E194' }}
+            onClick={(e: any) => {
+              e.preventDefault();
+              scrollToSection('endcontact');
+            }}
             >
             Start Your Partnership Journey
             </Button> 
@@ -169,7 +184,6 @@ const PartnershipBenefits = () => {
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#01E194'}
             >
               <span className="relative z-10">Start Your Partnership Journey</span> */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
       </div>

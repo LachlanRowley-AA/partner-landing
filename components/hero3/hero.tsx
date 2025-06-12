@@ -118,7 +118,7 @@ function Hero() {
                 Unlock growth for you and your clients with our innovative finance partnership model.
               </p>
             </div>
-            <div className="flex flex-row gap-3">
+            <div className="flex flex-row gap-3 mantine-hidden-from-md">
               <Button size="lg" bg="#01E194" className="gap-4">
                 Get Started <MoveRight className="w-4 h-4" />
               </Button>

@@ -15,6 +15,18 @@ export const FounderStorySection = () => {
     setVideoStarted(true);
   };
 
+    const scrollToSection = (id: string) => {
+    console.log('click');
+    const section = document.getElementById(id);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        console.log('section found');
+    }
+    else {
+      console.log('section not found');
+    }
+};
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Dynamic gradient background */}
@@ -146,7 +158,8 @@ export const FounderStorySection = () => {
             
             {/* CTA button */}
             <div className="pt-6">
-              <button className="group relative px-8 py-4 bg-[#01E194] rounded-xl font-semibold text-white shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+              <button className="group relative px-8 py-4 bg-[#01E194] rounded-xl font-semibold text-white shadow-lg hover:shadow-cyan-500/25 
+                transition-all duration-300 hover:scale-105 hover:-translate-y-1 " onClick={() => scrollToSection('endcontact')}>
                 <span className="relative z-10">Join Our Journey</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
