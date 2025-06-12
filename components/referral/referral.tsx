@@ -37,11 +37,6 @@ const steps = [
 function ReferralProcessSection() {
   return (
     <section className="py-10 relative overflow-hidden" style={{ backgroundColor: '#F6F6F6' }}>
-      {/* Background decorative elements */}
-      <div className="absolute top-10 right-10 w-40 h-40 rounded-full opacity-5" style={{ backgroundColor: '#01E194' }}></div>
-      <div className="absolute bottom-20 left-20 w-32 h-32 rounded-full opacity-5" style={{ backgroundColor: '#01E194' }}></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-3" style={{ backgroundColor: '#01E194' }}></div>
-
       <Container size="lg" className="relative z-10">
         {/* Enhanced Header */}
         <motion.div 

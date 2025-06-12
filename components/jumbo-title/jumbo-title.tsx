@@ -1,6 +1,6 @@
 import { type MantineFontSize, Title, type TitleProps } from '@mantine/core';
 import clsx from 'clsx';
-import classes from './index.module.css';
+import classes from './jumbo-title.module.css'
 
 export type JumboTitleOrder = 1 | 2 | 3 | 4 | 5;
 

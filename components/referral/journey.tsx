@@ -106,7 +106,7 @@ const ReferralJourneySection = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Central timeline line - centered on desktop, left-aligned on mobile */}
-          <div className="absolute md:left-1/2 left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-yellow-100 via-yellow-300 to-orange-300 md:transform md:-translate-x-1/2 opacity-100"></div>
+          <div className="absolute md:left-1/2 left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-white via-[#01E194] to-black md:transform md:-translate-x-1/2 opacity-100"></div>
           
           {/* Steps */}
           <div>
@@ -148,7 +148,7 @@ const ReferralJourneySection = () => {
                         
                         {/* Header with inline icon */}
                         <div className="flex items-center mb-4">
-                          <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} shadow-lg group-hover:scale-110 transition-transform duration-300 mr-4`}>
+                          <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#01E194] shadow-lg group-hover:scale-110 transition-transform duration-300 mr-4`}>
                             <IconComponent className="w-6 h-6 text-white" />
                           </div>
                           <h3 className="text-2xl font-bold text-gray-900">
@@ -171,42 +171,35 @@ const ReferralJourneySection = () => {
 
         {/* Partner Payment Section */}
         <div className={`mt-20 transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <div className="bg-[#01E194] rounded-sm p-12 text-white relative overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='white' fill-opacity='0.3'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
-              }}></div>
-            </div>
-            
+          <div className="bg-black rounded-sm p-12 text-white relative overflow-hidden">            
             <div className="relative z-10 text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-[white/20] backdrop-blur-lg rounded-sm mb-6">
-                <Award className="w-10 h-10 text-white" />
+              <div className="inline-flex items-center justify-center w-20 h-20 backdrop-blur-lg rounded-sm mb-6">
+                <Award className="w-10 h-10 text-[#01E194]" />
               </div>
               
-              <h3 className="text-3xl md:text-4xl font-bold mb-6">
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-[#01E194]">
                 Your Reward for Success
               </h3>
               
               <div className="max-w-3xl mx-auto">
-                <p className="text-xl text-emerald-100 leading-relaxed">
+                <p className="text-xl text-white leading-relaxed">
                   You get paid when your customer gets funded — it's that simple. No complex fee structures or hidden conditions.
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                  <div className="bg-white/10 backdrop-blur-lg rounded-md p-6 border border-white/20">
+                  <div className="bg-[#01E194] backdrop-blur-lg rounded-md p-6 border border-white/20">
                     <h4 className="text-lg font-semibold mb-2">Fast Payment</h4>
-                    <p className="text-emerald-100">Commission paid within 48 hours of funding</p>
+                    <p className="text-white">Commission paid within 48 hours of funding</p>
                   </div>
                   
-                  <div className="bg-white/10 backdrop-blur-lg rounded-md p-6 border border-white/20">
+                  <div className="bg-[#01E194] backdrop-blur-lg rounded-md p-6 border border-white/20">
                     <h4 className="text-lg font-semibold mb-2">Transparent Rates</h4>
-                    <p className="text-emerald-100">Clear, competitive commission structure</p>
+                    <p className="text-white">Clear, competitive commission structure</p>
                   </div>
                   
-                  <div className="bg-white/10 backdrop-blur-lg rounded-md p-6 border border-white/20">
+                  <div className="bg-[#01E194] backdrop-blur-lg rounded-md p-6 border border-white/20">
                     <h4 className="text-lg font-semibold mb-2">No Risk</h4>
-                    <p className="text-emerald-100">Only earn when your customer succeeds</p>
+                    <p className="text-white">Only earn when your customer succeeds</p>
                   </div>
                 </div>
               </div>

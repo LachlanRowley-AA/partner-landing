@@ -6,6 +6,8 @@ import '@mantine/core/styles.css';
 
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps, createTheme} from '@mantine/core';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

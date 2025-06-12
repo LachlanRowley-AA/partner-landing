@@ -56,8 +56,8 @@ const CustomerBenefits = () => {
           </p>
         </div>
 
-        {/* Benefits List */}
-        <div className="space-y-6 max-w-4xl mx-auto">
+        {/* Benefits Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (
@@ -67,28 +67,28 @@ const CustomerBenefits = () => {
                 onMouseEnter={() => setHoveredBenefit(index)}
                 onMouseLeave={() => setHoveredBenefit(null)}
               >
-                <div className="relative bg-white rounded-md p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-[1.02]" style={{ borderColor: '#EBEBEB', borderWidth: '1px' }}>
+                <div className="relative bg-white rounded-md p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group-hover:scale-[1.02] h-full flex flex-col" style={{ borderColor: '#EBEBEB', borderWidth: '1px' }}>
                   {/* Brand color accent bar */}
                   <div className="absolute left-0 top-0 bottom-0 w-1 rounded-md transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500" style={{ backgroundColor: '#01E194' }}></div>
                   
-                  <div className="flex items-start space-x-6">
+                  <div className="flex flex-col items-center text-center space-y-4 flex-1">
                     {/* Icon */}
-                    <div className="hidden md:flex flex-shrink-0 w-16 h-16 rounded-xl items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
+                    <div className="flex flex-shrink-0 w-16 h-16 rounded-xl items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
                     
                     {/* Content */}
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-2xl font-bold mb-3 transition-colors duration-300" style={{ color: '#000000' }}>
+                    <div className="flex-1 min-w-0 flex flex-col justify-center">
+                      <h3 className="text-xl font-bold mb-3 transition-colors duration-300" style={{ color: '#000000' }}>
                         {benefit.title}
                       </h3>
-                      <p className="text-lg leading-relaxed transition-colors duration-300" style={{ color: '#000000', opacity: 0.8 }}>
+                      <p className="text-base leading-relaxed transition-colors duration-300" style={{ color: '#000000', opacity: 0.8 }}>
                         {benefit.description}
                       </p>
                     </div>
                     
                     {/* Check mark */}
-                    <div className="hidden md:flex flex-shrink-0 w-8 h-8 rounded-full items-center justify-center transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
+                    <div className="flex flex-shrink-0 w-8 h-8 rounded-full items-center justify-center transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
                       <CheckCircle className="w-5 h-5 text-white" />
                     </div>
                   </div>

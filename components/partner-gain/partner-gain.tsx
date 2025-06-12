@@ -71,17 +71,17 @@ const PartnershipBenefits = () => {
         onMouseLeave={() => setHoveredCard(null)}
       >
         <div 
-          className="relative backdrop-blur-lg rounded-sm p-6 h-full border transition-all duration-300 hover:scale-105 hover:shadow-2xl" 
+          className="relative backdrop-blur-lg rounded-xs p-6 h-full border transition-all duration-300 hover:scale-105 hover:shadow-2xl" 
           style={{ 
-            backgroundColor: '#F6F6F6', 
+            backgroundColor: '#FFFFFF', 
             borderColor: '#01E194', 
-            borderWidth: '2px',
+            borderWidth: '1px',
             boxShadow: hoveredCard === actualIndex ? '0 25px 50px -12px rgba(1, 225, 148, 0.25)' : 'none'
           }}
         >
           {/* Gradient overlay on hover */}
           <div 
-            className="absolute inset-0 rounded-sm transition-opacity duration-300"
+            className="absolute inset-0 rounded-xs transition-opacity duration-300"
             style={{ 
               background: `linear-gradient(135deg, rgba(1, 225, 148, 0.1) 0%, rgba(1, 225, 148, 0.05) 100%)`,
               opacity: hoveredCard === actualIndex ? 1 : 0
@@ -111,26 +111,20 @@ const PartnershipBenefits = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-20 px-6 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl animate-pulse" style={{ background: 'radial-gradient(circle, rgba(1, 225, 148, 0.15) 0%, rgba(1, 225, 148, 0.05) 70%)' }}></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full blur-3xl animate-pulse animation-delay-2000" style={{ background: 'radial-gradient(circle, rgba(1, 225, 148, 0.1) 0%, rgba(1, 225, 148, 0.03) 70%)' }}></div>
-      </div>
-
+    <section className="min-h-screen bg-[#f6f6f6] py-6 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6" style={{ background: 'linear-gradient(135deg, #FFFFFF 0%, #01E194 50%, #FFFFFF 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+        <div className={`text-center mb-8 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-black">
             Transform Your Business
           </h2>
-          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: '#D2D3D5' }}>
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'black' }}>
             Partner with us to unlock unprecedented growth opportunities and deliver exceptional experiences that set you apart
           </p>
         </div>
 
         {/* Benefits Grid */}
-        <div className="mb-16">
+        <div className="mb-8">
           {/* First row - 3 cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {benefits.slice(0, 3).map((benefit, index) => renderCard(benefit, index, index))}
@@ -145,15 +139,14 @@ const PartnershipBenefits = () => {
         {/* Call to Action */}
         <div className={`text-center transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           <div 
-            className="backdrop-blur-lg rounded-lg p-12 border max-w-4xl mx-auto"
+            className="backdrop-blur-lg rounded-xs p-12 border mx-auto"
             style={{ 
-              backgroundColor: '#EBEBEB', 
-              borderColor: '#01E194', 
-              borderWidth: '2px'
+              backgroundColor: 'white',
+              borderColor: '#01E194'
             }}
           >
             <h3 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#000000' }}>
-              Ready to Elevate Your Partnership?
+              Ready to Elevate Your Business?
             </h3>
             <p className="text-lg mb-8 max-w-2xl mx-auto" style={{ color: '#000000' }}>
               Join industry leaders who trust us to power their growth. Let's discuss how we can customize our solutions for your unique needs.
@@ -173,35 +166,6 @@ const PartnershipBenefits = () => {
           </div>
         </div>
       </div>
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-white/30 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
-            }}
-          ></div>
-        ))}
-      </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-          50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
-        }
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-      `}</style>
     </section>
   );
 };
