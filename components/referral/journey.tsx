@@ -1,35 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Search, CheckCircle, Users, Shield, FileCheck, DollarSign, Award } from 'lucide-react';
 
 const ReferralJourneySection = () => {
   const [visibleSteps, setVisibleSteps] = useState(new Set());
   const [isVisible, setIsVisible] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
+    // Start the header animation immediately
     setIsVisible(true);
     
-    const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const stepIndex = parseInt((entry.target as HTMLElement).dataset.step || '0');
-            setVisibleSteps(prev => new Set([...prev, stepIndex]));
-        }
-        });
-    },
-    { threshold: 0.3 }
-    );
-    observerRef.current = observer;
-
-    // Observe all step elements after a short delay
-    setTimeout(() => {
-      document.querySelectorAll('[data-step]').forEach((el) => {
-        observer.observe(el);
+    // Animate steps sequentially from top to bottom
+    const animateSteps = () => {
+      steps.forEach((_, index) => {
+        setTimeout(() => {
+          setVisibleSteps(prev => new Set([...prev, index]));
+        }, 300 + (index * 200)); // Start after 300ms, then 200ms between each step
       });
-    }, 100);
+    };
 
-    return () => observer.disconnect();
+    // Start step animations after a brief delay
+    setTimeout(animateSteps, 500);
   }, []);
 
   const steps = [
@@ -113,17 +103,16 @@ const ReferralJourneySection = () => {
             {steps.map((step, index) => {
               const IconComponent = step.icon;
               const isLeft = index % 2 === 0;
-              const isVisible = visibleSteps.has(index);
+              const isStepVisible = visibleSteps.has(index);
               
               return (
                 <div
                   key={index}
-                  data-step={index}
                   className="relative flex items-center w-full"
                 >
                   {/* Timeline dot - centered on desktop, left-aligned on mobile */}
-                  <div className={`absolute md:left-1/2 left-4 md:transform md:-translate-x-1/2 transform -translate-x-1/2 w-8 h-8 bg-[#01E194] rounded-full border-4 border-white shadow-lg z-20 transition-all duration-700 delay-${index * 100} ${
-                    isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+                  <div className={`absolute md:left-1/2 left-4 md:transform md:-translate-x-1/2 transform -translate-x-1/2 w-8 h-8 bg-[#01E194] rounded-full border-4 border-white shadow-lg z-20 transition-all duration-700 ${
+                    isStepVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
                   }`}>
                     <div className="absolute inset-1 bg-white rounded-full"></div>
                   </div>
@@ -132,8 +121,8 @@ const ReferralJourneySection = () => {
                   <div className={`md:w-5/12 w-full ${
                     isLeft ? "md:pr-8 pl-12" : "md:pl-8 md:ml-auto pl-12"
                   }`}>
-                    <div className={`relative transform transition-all duration-700 delay-${index * 100} ${
-                      isVisible 
+                    <div className={`relative transform transition-all duration-700 ${
+                      isStepVisible 
                         ? 'translate-y-0 opacity-100 scale-100' 
                         : `translate-y-8 opacity-0 scale-95 ${isLeft ? 'translate-x-8' : 'md:-translate-x-8 translate-x-8'}`
                     }`}>
@@ -148,7 +137,7 @@ const ReferralJourneySection = () => {
                         
                         {/* Header with inline icon */}
                         <div className="flex items-center mb-4">
-                          <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#01E194] shadow-lg group-hover:scale-110 transition-transform duration-300 mr-4`}>
+                          <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#01E194] shadow-lg group-hover:scale-110 transition-transform duration-300 mr-4 mantine-visible-from-md`}>
                             <IconComponent className="w-6 h-6 text-white" />
                           </div>
                           <h3 className="text-2xl font-bold text-gray-900">
@@ -170,7 +159,7 @@ const ReferralJourneySection = () => {
         </div>
 
         {/* Partner Payment Section */}
-        <div className={`mt-20 transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+        <div className={`mt-20 transform transition-all duration-1000 delay-[2000ms] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
           <div className="bg-black rounded-sm p-12 text-white relative overflow-hidden">            
             <div className="relative z-10 text-center">
               <div className="inline-flex items-center justify-center w-20 h-20 backdrop-blur-lg rounded-sm mb-6">

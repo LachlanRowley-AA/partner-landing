@@ -36,7 +36,7 @@ export function Button({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl h-16 w-40 p-[1px] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105",
+        "bg-transparent relative text-xl h-16 w-50 md:w-80 p-[1px] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105",
         containerClassName
       )}
       style={{
@@ -46,7 +46,6 @@ export function Button({
     >
       <div
         className="absolute inset-0 z-10"
-        style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
       >
         <MovingBorder duration={duration} rx="80%" ry="80%">
           <motion.div
@@ -70,7 +69,7 @@ export function Button({
       </div>
       <motion.div
         className={cn(
-          "relative border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased z-20",
+          "relative backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-md antialiased z-20",
           className
         )}
         style={{

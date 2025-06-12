@@ -17,12 +17,6 @@ const CustomerBenefits = () => {
       delay: "delay-100"
     },
     {
-      icon: Lightbulb,
-      title: "Creative Solutions",
-      description: "Innovative, outside-the-box thinking tailored to meet their goals",
-      delay: "delay-200"
-    },
-    {
       icon: HandHeart,
       title: "No-Pressure Approach",
       description: "Honest guidance with integrity — if we can't genuinely help, we'll tell them upfront",
@@ -57,7 +51,7 @@ const CustomerBenefits = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => {
             const IconComponent = benefit.icon;
             return (

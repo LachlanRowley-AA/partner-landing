@@ -24,7 +24,7 @@ export const ContactSection = () => {
           />
             <Button 
             duration={3000}
-            borderClassName="h-6 w-6"
+            borderClassName="h-6 w-12"
             contentStyle={{ backgroundColor: '#01E194' }}
             >
             Submit

@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
-import { Play, Users, Target, Zap } from 'lucide-react';
+import { Play, Users, Banknote, Zap } from 'lucide-react';
 
 export const FounderStorySection = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoStarted, setVideoStarted] = useState(false);
 
   const stats = [
-    { icon: Users, label: "Partners Empowered", value: "x+" },
-    { icon: Target, label: "Success Rate", value: "y%" },
-    { icon: Zap, label: "Years Experience", value: "z+" }
+    { icon: Users, label: "Partners Empowered", value: "50+" },
+    { icon: Banknote, label: "Financed", value: "$108,811,919" },
+    { icon: Zap, label: "Years of Combined Experience", value: "40+" }
   ];
+
+  const handlePlayClick = () => {
+    setVideoStarted(true);
+  };
 
   return (
     <section className="relative py-24 overflow-hidden">
@@ -50,7 +54,7 @@ export const FounderStorySection = () => {
           {/* Video section */}
           <div className="order-2 lg:order-1">
             <div 
-              className={`relative group cursor-pointer transition-all duration-700 ${
+              className={`relative group transition-all duration-700 ${
                 isHovered ? 'transform scale-105' : ''
               }`}
               onMouseEnter={() => setIsHovered(true)}
@@ -58,13 +62,15 @@ export const FounderStorySection = () => {
             >
               {/* Video container with advanced styling */}
               <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/20">
-                {/* Glass morphism overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent backdrop-blur-sm z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
-                {!videoLoaded && (
-                  <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center z-20">
+                {/* Play button overlay - only shown when video hasn't started */}
+                {!videoStarted && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center z-20 cursor-pointer"
+                    onClick={handlePlayClick}
+                  >
                     <div className="text-center">
-                      <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm border border-white/30">
+                      <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors duration-300">
                         <Play className="w-8 h-8 text-white ml-1" />
                       </div>
                       <p className="text-white font-medium">Click to Play</p>
@@ -74,25 +80,24 @@ export const FounderStorySection = () => {
                 
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/ej_lEGyyAdU?rel=0&modestbranding=1"
+                  src={`https://www.youtube.com/embed/ej_lEGyyAdU${videoStarted ? '?autoplay=1' : ''}`}
                   title="Asset Alley Founder Story"
-                  frameBorder="0"
                   allowFullScreen
-                  onLoad={() => setVideoLoaded(true)}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 />
                 
                 {/* Decorative corner accents */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-cyan-400 opacity-60"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-purple-400 opacity-60"></div>
-                <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-purple-400 opacity-60"></div>
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-cyan-400 opacity-60"></div>
+                <div className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-cyan-400 opacity-60 pointer-events-none"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-purple-400 opacity-60 pointer-events-none"></div>
+                <div className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-purple-400 opacity-60 pointer-events-none"></div>
+                <div className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-cyan-400 opacity-60 pointer-events-none"></div>
               </div>
               
               {/* Glow effect */}
-              <div className={`absolute inset-0 rounded-2xl transition-opacity duration-300 ${
-                isHovered ? 'opacity-100' : 'opacity-0'
+              <div className={`absolute inset-0 rounded-2xl transition-opacity duration-300 pointer-events-none ${
+                isHovered && !videoStarted ? 'opacity-100' : 'opacity-0'
               }`} style={{
-                background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.15), transparent 40%)',
+                background: 'radial-gradient(600px circle at 50% 50%, rgba(59, 130, 246, 0.15), transparent 40%)',
                 filter: 'blur(20px)',
                 transform: 'translateZ(0)'
               }}></div>
@@ -108,9 +113,9 @@ export const FounderStorySection = () => {
               </h3>
               
               <p className="text-lg text-white/80 leading-relaxed">
-                Every great company starts with a problem that demands to be solved. 
-                Asset Alley was born from the frustration of seeing talented partners 
-                struggle with outdated tools and fragmented systems.
+                Asset Alley was founded after seeing too many small business owners held back by complex lending processes 
+                and a lack of tailored support. 
+                They had the drive — but not the right financial backing. We built Asset Alley to change that
               </p>              
             </div>
 
@@ -123,7 +128,16 @@ export const FounderStorySection = () => {
                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+                    <div className="text-2xl font-bold text-white mb-1 break-words">
+                      {stat.label === "Financed" ? (
+                        <>
+                          <span className="block md:hidden">$108M</span>
+                          <span className="hidden md:block">{stat.value}</span>
+                        </>
+                      ) : (
+                        stat.value
+                      )}
+                    </div>
                     <div className="text-sm text-white/70">{stat.label}</div>
                   </div>
                 );
