@@ -100,14 +100,6 @@ function ReferralProcessSection() {
                     }}
                   />
                   
-                  {/* Step number badge */}
-                  <div 
-                    className="absolute top-2 right-5 w-12 h-12 rounded-full hidden md:flex items-center justify-center text-white font-bold text-lg shadow-lg"
-                    style={{ backgroundColor: '#01E194' }}
-                  >
-                    {step.number}
-                  </div>
-
                   {/* Brand accent line */}
                   <div 
                     className="absolute left-0 top-0 bottom-0 w-2 rounded-l-2xl transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top"
