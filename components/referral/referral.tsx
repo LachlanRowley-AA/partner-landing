@@ -12,16 +12,16 @@ const steps = [
     number: "01"
   },
   {
-    title: "Log referrals in under 2 minutes",
+    title: "Quick Customer Application",
     description:
-      "Using our simple system, it's never been quicker or easier to track referrals.",
+      "Customers can log applications in under a minute.",
     icon: IconClock,
     number: "02"
   },
   {
-    title: "Seamless integration with invoices",
+    title: "Seamless integration with proposals & invoices",
     description:
-      "Place our link on your tax invoices so if your customers want, they can calculate estimated repayments, see benefits, and enquire with our team.",
+      "Place our link on your proposals and tax invoices so if your customers want, they can calculate estimated repayments, see benefits, and enquire with our team.",
     icon: IconReceipt2,
     number: "03"
   },
@@ -86,7 +86,7 @@ function ReferralProcessSection() {
                   shadow="lg" 
                   radius="2xl" 
                   p="xl" 
-                  className="relative group cursor-pointer overflow-hidden"
+                  className="relative group cursor-pointer overflow-hidden h-full"
                   style={{ 
                     backgroundColor: '#FFFFFF',
                     border: '2px solid #EBEBEB'
@@ -114,22 +114,16 @@ function ReferralProcessSection() {
                     style={{ backgroundColor: '#01E194' }}
                   />
                   
-                  <div className="flex items-start gap-6 relative z-10">
+                  <div className="flex items-start gap-6 relative z-10 color:#01E194">
                     {/* Enhanced Icon Container */}
                     <motion.div 
-                      className="flex-shrink-0 p-3 rounded-2xl shadow-lg relative overflow-hidden"
-                      style={{ backgroundColor: '#01E194' }}
+                      className="flex-shrink-0 p-2 rounded-2xl shadow-lg relative overflow-hidden"
+                      style={{ backgroundColor: '#ebebeb', color:'#01E194' }}
                       whileHover={{ rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      transition={{ type: "spring", stiffness: 300 }
+                    }
                     >
-                      {/* Icon background glow */}
-                      <div 
-                        className="absolute inset-0 rounded-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-300"
-                        style={{ 
-                          background: `radial-gradient(circle, rgba(1, 225, 148, 0.3) 0%, transparent 70%)`
-                        }}
-                      />
-                      <Icon size={36} color="#FFFFFF" className="relative z-10" />
+                    <Icon size={32} color="#01E194" className="relative z-10" strokeWidth='1.5px' />
                     </motion.div>
                     
                     {/* Content */}
@@ -152,15 +146,6 @@ function ReferralProcessSection() {
                       </Text>
                     </div>
                   </div>
-
-                  {/* Subtle corner decoration */}
-                  <div 
-                    className="absolute bottom-0 right-0 w-20 h-20 opacity-5 group-hover:opacity-10 transition-opacity duration-300"
-                    style={{ 
-                      background: `linear-gradient(135deg, transparent 50%, #01E194 50%)`,
-                      borderRadius: '0 0 1rem 0'
-                    }}
-                  />
                 </Paper>
               </motion.div>
             );

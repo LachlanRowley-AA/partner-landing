@@ -80,11 +80,6 @@ const CustomerBenefits = () => {
                         {benefit.description}
                       </p>
                     </div>
-                    
-                    {/* Check mark */}
-                    <div className="flex flex-shrink-0 w-8 h-8 rounded-full items-center justify-center transform group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: '#01E194' }}>
-                      <CheckCircle className="w-5 h-5 text-white" />
-                    </div>
                   </div>
                   
                   {/* Hover background effect */}

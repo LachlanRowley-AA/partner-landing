@@ -174,23 +174,6 @@ const ReferralJourneySection = () => {
                 <p className="text-xl text-white leading-relaxed">
                   You get paid when your customer gets funded — it's that simple. No complex fee structures or hidden conditions.
                 </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                  <div className="bg-[#01E194] backdrop-blur-lg rounded-md p-6 border border-white/20">
-                    <h4 className="text-lg font-semibold mb-2">Fast Payment</h4>
-                    <p className="text-white">Commission paid within 48 hours of funding</p>
-                  </div>
-                  
-                  <div className="bg-[#01E194] backdrop-blur-lg rounded-md p-6 border border-white/20">
-                    <h4 className="text-lg font-semibold mb-2">Transparent Rates</h4>
-                    <p className="text-white">Clear, competitive commission structure</p>
-                  </div>
-                  
-                  <div className="bg-[#01E194] backdrop-blur-lg rounded-md p-6 border border-white/20">
-                    <h4 className="text-lg font-semibold mb-2">No Risk</h4>
-                    <p className="text-white">Only earn when your customer succeeds</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
