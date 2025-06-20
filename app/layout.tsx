@@ -40,6 +40,7 @@ export default function RootLayout({
       <html lang="en" {...mantineHtmlProps}>
         <head>
           <ColorSchemeScript />
+          <meta name="google-site-verification" content="kfYMUctiHfNdOAl0iBNFYlGc64DJE5ac5q3PkfuAO_A" />
         </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
