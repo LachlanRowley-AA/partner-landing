@@ -1,6 +1,18 @@
 import { Button, Container, Text, Title } from '@mantine/core';
 import classes from './hero.module.css';
 
+  const scrollToSection = (id: string) => {
+    console.log('click');
+    const section = document.getElementById(id);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        console.log('section found');
+    }
+    else {
+      console.log('section not found');
+    }
+};
+
 export const Hero = () => {
   return (
     <div className={classes.root}>
@@ -31,6 +43,11 @@ export const Hero = () => {
               size="xl"
               className={classes.control}
               mt={40}
+              onClick={(e: any) => {
+              e.preventDefault();
+              scrollToSection('endcontact');
+            }}
+
             >
               Get started
             </Button>
