@@ -122,6 +122,7 @@ export const MovingBorder = ({
   const progress = useMotionValue<number>(0);
   
   useAnimationFrame((time) => {
+    if (!pathRef.current) return;
     const length = pathRef.current?.getTotalLength();
     if (length) {
       const pxPerMillisecond = length / duration;
