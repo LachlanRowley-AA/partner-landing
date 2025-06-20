@@ -7,7 +7,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 // Simple cn utility function
 const cn = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ');
@@ -118,25 +118,92 @@ export const MovingBorder = ({
   ry?: string;
   [key: string]: any;
 }) => {
-  const pathRef = useRef<any>(null);
+  const pathRef = useRef<SVGRectElement>(null);
   const progress = useMotionValue<number>(0);
+  const [pathLength, setPathLength] = useState<number>(0);
+  
+  // Wait for the SVG to be rendered and get the path length
+  useEffect(() => {
+    const getPathLength = () => {
+      if (pathRef.current) {
+        try {
+          const length = pathRef.current.getTotalLength();
+          if (length > 0) {
+            setPathLength(length);
+          }
+        } catch (error) {
+          // Fallback: calculate approximate perimeter for rounded rectangle
+          const rect = pathRef.current.getBoundingClientRect();
+          const approximateLength = 2 * (rect.width + rect.height);
+          setPathLength(approximateLength);
+        }
+      }
+    };
+
+    // Try to get length immediately
+    getPathLength();
+    
+    // Also try after a short delay to ensure SVG is rendered
+    const timer = setTimeout(getPathLength, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   useAnimationFrame((time) => {
-    if (!pathRef.current) return;
-    const length = pathRef.current?.getTotalLength();
-    if (length) {
-      const pxPerMillisecond = length / duration;
-      progress.set((time * pxPerMillisecond) % length);
-    }
+    if (!pathRef.current || pathLength === 0) return;
+    
+    const pxPerMillisecond = pathLength / duration;
+    progress.set((time * pxPerMillisecond) % pathLength);
   });
   
   const x = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val)?.x || 0
+    (val) => {
+      if (!pathRef.current || pathLength === 0) return 0;
+      try {
+        return pathRef.current.getPointAtLength(val)?.x || 0;
+      } catch {
+        // Fallback calculation for approximate position
+        const rect = pathRef.current.getBoundingClientRect();
+        const perimeter = 2 * (rect.width + rect.height);
+        const normalizedVal = val / perimeter;
+        
+        if (normalizedVal <= 0.25) {
+          return normalizedVal * 4 * rect.width;
+        } else if (normalizedVal <= 0.5) {
+          return rect.width;
+        } else if (normalizedVal <= 0.75) {
+          return rect.width - (normalizedVal - 0.5) * 4 * rect.width;
+        } else {
+          return 0;
+        }
+      }
+    }
   );
+  
   const y = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val)?.y || 0
+    (val) => {
+      if (!pathRef.current || pathLength === 0) return 0;
+      try {
+        return pathRef.current.getPointAtLength(val)?.y || 0;
+      } catch {
+        // Fallback calculation for approximate position
+        const rect = pathRef.current.getBoundingClientRect();
+        const perimeter = 2 * (rect.width + rect.height);
+        const normalizedVal = val / perimeter;
+        
+        if (normalizedVal <= 0.25) {
+          return 0;
+        } else if (normalizedVal <= 0.5) {
+          return (normalizedVal - 0.25) * 4 * rect.height;
+        } else if (normalizedVal <= 0.75) {
+          return rect.height;
+        } else {
+          return rect.height - (normalizedVal - 0.75) * 4 * rect.height;
+        }
+      }
+    }
   );
   
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
@@ -149,6 +216,7 @@ export const MovingBorder = ({
         className="absolute h-full w-full"
         width="100%"
         height="100%"
+        style={{ visibility: 'visible' }}
         {...otherProps}
       >
         <rect
@@ -158,6 +226,7 @@ export const MovingBorder = ({
           rx={rx}
           ry={ry}
           ref={pathRef}
+          style={{ visibility: 'visible' }}
         />
       </svg>
       <motion.div
