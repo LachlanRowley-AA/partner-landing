@@ -291,7 +291,7 @@ export const Comparison1Defaults: Props = {
     },
     {
       text: "Interest Range",
-      items: ["13.5-17%", "12-15%"],
+      items: ["12.95-16.95%", "12-15%"],
       info: "The annual percentage rate (APR) range the customer can expect to pay on borrowed funds.",
       green: [true, true]
     },
