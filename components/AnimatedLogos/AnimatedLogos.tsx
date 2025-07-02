@@ -20,6 +20,10 @@ import endspace from '../../public/endspace.png';
 import dijgtal from '../../public/Dijgtal.svg';
 import brandlab from '../../public/BRANDLAB-LOGO-white.png';
 import chase from '../../public/Chase-e-Design-Logo-flat.png';
+import bandit from '../../public/Bandit.png';
+import digital from '../../public/Digital-One-Logo-1.webp';
+import ply from '../../public/Ply_Logo.png';
+import rivyl from '../../public/Rivyl.webp';
 
 const ITEMS = [
   <Group key="branding" wrap="nowrap">
@@ -46,7 +50,18 @@ const ITEMS = [
     <Group key="chase" wrap="nowrap">
     <NextImage src={chase} height={40} width={150} alt='chase' />
   </Group>,
-
+    <Group key="bandit" wrap="nowrap">
+    <NextImage src={bandit} height={40} width={150} alt='bandit' />
+  </Group>,
+    <Group key="digital" wrap="nowrap">
+    <NextImage src={digital} height={40} width={150} alt='digital' />
+  </Group>,
+    <Group key="ply" wrap="nowrap">
+    <NextImage src={ply} height={40} width={150} alt='ply' />
+  </Group>,
+    <Group key="rivyl" wrap="nowrap">
+    <NextImage src={rivyl} height={40} width={150} alt='rivyl' />
+  </Group>,
 ];
 
 export type Logos03Props = ContainerProps & {
