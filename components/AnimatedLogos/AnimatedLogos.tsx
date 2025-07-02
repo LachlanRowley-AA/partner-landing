@@ -23,7 +23,7 @@ import chase from '../../public/Chase-e-Design-Logo-flat.png';
 import bandit from '../../public/Bandit.png';
 import digital from '../../public/Digital-One-Logo-1.webp';
 import ply from '../../public/Ply_Logo.png';
-import rivyl from '../../public/Rivyl.webp';
+import rivyl from '../../public/rivyl.webp';
 
 const ITEMS = [
   <Group key="branding" wrap="nowrap">
